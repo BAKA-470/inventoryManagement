@@ -7,8 +7,10 @@ export default class ProductController {
     getProducts(req, res) {
         let products = ProductModel.get();
         console.log(products)
+
+        res.render('products', { products: products })
             // path.resolve give the path to the current executing directory
-        return res.sendFile(path.join(path.resolve(), "src", "views", "products.html"));
+            // return res.sendFile(path.join(path.resolve(), "src", "views", "products.html"));
     }
 
 }
