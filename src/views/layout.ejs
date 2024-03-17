@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -22,49 +22,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Products</a>
+                        <a class="nav-link active" aria-current="page" href="/">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/new">New Products</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container"> -->
-<table class="table table-dark">
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Price</th>
-            <th scope="col">Image</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% products.forEach(product => { %>
-            <tr>
-                <th>
-                    <%= product.id%>
-                </th>
-                <td>
-                    <%= product.name%>
-                </td>
-                <td>
-                    <%= product.desc%>
-                </td>
-                <td scope="col">
-                    <%= product.price%>
-                </td>
-                <td>
-                    <img src="<%= product.imageUrl%>" />
-                </td>
-            </tr>
-            <% }) %>
-
-
-
-    </tbody>
-</table>
-<!-- </div>
+    <div class="container">
+        <%- body %>
+    </div>
 </body>
 
-</html> -->
+</html>
