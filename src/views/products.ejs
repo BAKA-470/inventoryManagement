@@ -37,6 +37,7 @@
             <th scope="col">Description</th>
             <th scope="col">Price</th>
             <th scope="col">Image</th>
+            <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -57,6 +58,13 @@
                 <td>
                     <img src="<%= product.imageUrl%>" />
                 </td>
+                <td>
+                    <a href="/update-product/<%= product.id%>" class="btn btn-warning">Update</a>
+                    <button class="btn-btn-danger" onclick="deleteProduct('<%= product.id%>')">Delete</button>
+                    <!-- <a href="/delete-product/<%= product.id%>" class="btn btn-danger">delete</a> -->
+
+                </td>
+
             </tr>
             <% }) %>
 

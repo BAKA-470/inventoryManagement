@@ -1,0 +1,15 @@
+1 Install Multer 
+
+2 Changes in view to upload the file insted of an URL 
+
+3 Middleware to handle files.
+
+4 Apply this middleware.
+
+5 Update the controller to update the URL of image.
+
+
+
+Multipart data:-
+
+we are able to sent binary data and multiple data types in single requests.

@@ -43,5 +43,33 @@ export default class ProductController {
         return res.render('products', { products: products })
     }
 
+    getUpdateProductView(req, res, next) {
+        // 1 if product exist return view
+        const id = req.params.id;
+        const productFound = ProductModel.getById(id);
+        if (productFound) {
+            res.render('update-product', { product: productFound, errorMessage: null });
+        }
+        // else return error
+        else {
+            res.status(401).send('Product not found');
+        }
+    }
+    postUpdateProduct(req, res) {
+        ProductModel.update(req.body);
+        let products = ProductModel.get();
+        return res.render('products', { products: products })
+    }
+    deleteProduct(req, res) {
+        const id = req.params.id;
+        const productFound = ProductModel.getById(id);
+        if (!productFound) {
+            return res.status(401).send('Product Not Found!!')
+        }
+        ProductModel.delete(id);
+        var products = ProductModel.get();
+        return res.render('products', { products: products })
+    }
+
 }
 // export default ProductController;

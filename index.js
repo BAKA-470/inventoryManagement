@@ -7,6 +7,10 @@ import validationMiddleware from './src/middlewares/validation.middleware.js';
 
 const server = express();
 
+server.use(express.static('public'));
+
+
+
 // parse the data so that we can use the data  in our requests from body
 
 server.use(express.urlencoded({ extended: true })); //parse url
@@ -23,8 +27,11 @@ const productController = new ProductController();
 
 server.get("/", productController.getProducts);
 server.get('/new', productController.getAddForm);
-server.post('/', validationMiddleware, productController.addNewProduct);
+server.get("/update-product/:id", productController.getUpdateProductView);
+server.post('/delete-product/:id', productController.deleteProduct);
 
+server.post('/', validationMiddleware, productController.addNewProduct);
+server.post('/update-product', productController.postUpdateProduct)
 
 server.listen(8000, () => {
     console.log('Server is running on  port 8000');
